@@ -1,6 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 public class Character : MonoBehaviour
 {
+    public UnityEvent<Transform> OnTakeDamage;
+    public UnityEvent<object> OnTakeDead;
     public int healthAll;
     public int healthCurrent;
     private Animator ani;
@@ -21,27 +24,28 @@ public class Character : MonoBehaviour
         {
             //执行受伤操作
             hurtCalculate(attack);
-
+            OnTakeDamage?.Invoke(attack.transform);
         }
         else
         {
             healthCurrent = 0;
             //执行死亡操作
+            OnTakeDead?.Invoke(this);
+            
         }
     }
     private void Update()
     {
         invulnerableTimeUpdate();
     }
-
     //受伤伤害计算
     private void hurtCalculate(Attack attack)
     {
         invulnerableDamage = true;
         invulnearbleTime = timeCount;
         healthCurrent -= attack.damage;
-        ani.SetTrigger("isHurt");
     }
+
 
     //无敌时间更新
     private void invulnerableTimeUpdate()

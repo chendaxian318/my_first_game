@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -17,8 +18,11 @@ public class PlayControl : MonoBehaviour
     [Header("速度参数")]
     public Vector2 moveInput;
     public bool isRun;
+    public bool isHurt;
+    public bool isDead;
     public float moveSpeed;
     public float jumpForce;
+    public float hurtForce;
     int direction;
     public double VelocityY;
 
@@ -102,7 +106,8 @@ public class PlayControl : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
         direction = (int)moveInput.x;
-        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        //死亡后不能转向
+            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
 
     }
     private void OnMoveCanceled(InputAction.CallbackContext context)
@@ -117,7 +122,7 @@ public class PlayControl : MonoBehaviour
     void FixedUpdate()
     {
         //Velocity is objection speed
-        if (!physicsCheck.isCrouch)
+        if (!physicsCheck.isCrouch&& !isHurt)
             rb.linearVelocityX = moveInput.x * moveSpeed;
     }
 
@@ -130,8 +135,12 @@ public class PlayControl : MonoBehaviour
     }
 
     
-    private void HurtForce()
+    public void GetHurt(Transform AttackTransform)
     {
+        Vector2 dir = new Vector2 ((transform.position.x - AttackTransform.position.x),0).normalized;
+        isHurt = true;
+        rb.linearVelocity = Vector2.zero;
 
+        rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
     }
 }
