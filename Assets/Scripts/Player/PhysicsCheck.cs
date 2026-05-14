@@ -3,22 +3,35 @@ using UnityEngine;
 public class PhysicsCheck : MonoBehaviour
 {
 
+    private enemy enemy;
     [Header("状态参数")]
     public bool isGround = false;
     public bool isCrouch=false;
+    public bool isLeftWall = false;
+    public bool isRightWall = false;
 
     [Header("地面检测")]
     public float groundCheckRadius;//检测范围
     public LayerMask GroundLayer; //指定碰撞层级
-    public Vector2 offset;
-    private void CheckGround()
+    public Vector2 bottomOffset;
+    public Vector2 leftOffset;
+    public double faceDir;
+    public Vector2 rightOffset; 
+    private void Awake()
     {
-        Vector2 checkPos = transform.position;
-        isGround = Physics2D.OverlapCircle(checkPos + offset, groundCheckRadius, GroundLayer);
+
+        faceDir = -transform.localScale.x;
+        Debug.Log(transform.localScale.x);
+    }
+    private void Check()
+    {
+        isGround = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2((float)(bottomOffset.x * -faceDir),bottomOffset.y), groundCheckRadius, GroundLayer);
+        isLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, groundCheckRadius, GroundLayer);
+        isRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, groundCheckRadius, GroundLayer);
     }
     private void FixedUpdate()
     {
-        CheckGround();// 每tickle检测地面
+        Check();// 每tickle检测各种状态
     }
 
     private void OnDrawGizmos()
@@ -27,7 +40,8 @@ public class PhysicsCheck : MonoBehaviour
         Gizmos.color = isGround ? Color.yellow : Color.green;
 
         // 绘制一个实心圆，方便看范围
-        Vector2 checkPos = transform.position;
-        Gizmos.DrawWireSphere(checkPos + offset, groundCheckRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2((float)(bottomOffset.x * -faceDir), bottomOffset.y), groundCheckRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, groundCheckRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, groundCheckRadius);
     }
 }

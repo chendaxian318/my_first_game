@@ -24,6 +24,7 @@ public class PlayerAnimationSet : MonoBehaviour
         anim.SetFloat("VelocityY", playControl.rb.linearVelocityY);
         anim.SetBool("isGround", playControl.physicsCheck.isGround);
         anim.SetBool("isCrouch", playControl.physicsCheck.isCrouch);
+        anim.SetBool("isAttack", playControl.isAttack);
     }
     public void TakeDamage(Transform transform)
     {

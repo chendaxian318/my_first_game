@@ -52,7 +52,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.06666667
+        time: 0.033333335
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -61,16 +61,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.13333334
+        time: 0.06666667
         value: 0.75
-        inSlope: 3.7500002
-        outSlope: 3.7500002
+        inSlope: 7.5000005
+        outSlope: 7.5000005
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.2
+        time: 0.1
         value: 1
         inSlope: 0
         outSlope: 0
@@ -100,7 +100,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.06666667
+        time: 0.033333335
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -109,16 +109,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.13333334
+        time: 0.06666667
         value: 0.75
-        inSlope: 3.7500002
-        outSlope: 3.7500002
+        inSlope: 7.5000005
+        outSlope: 7.5000005
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.2
+        time: 0.1
         value: 1
         inSlope: 0
         outSlope: 0
@@ -160,18 +160,18 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -8164923724970564060, guid: 2f84c0ef0295c6546b059dafa11bcd85, type: 3}
-    - time: 0.06666667
+    - time: 0.033333335
       value: {fileID: -8439552032314868745, guid: 2f84c0ef0295c6546b059dafa11bcd85, type: 3}
-    - time: 0.13333334
+    - time: 0.06666667
       value: {fileID: 1950509851250621916, guid: 2f84c0ef0295c6546b059dafa11bcd85, type: 3}
-    - time: 0.2
+    - time: 0.1
       value: {fileID: -2408172349292206195, guid: 2f84c0ef0295c6546b059dafa11bcd85, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 15
+  m_SampleRate: 30
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -233,7 +233,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26666668
+    m_StopTime: 0.13333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -284,7 +284,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.06666667
+        time: 0.033333335
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -293,16 +293,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.13333334
+        time: 0.06666667
         value: 0.75
-        inSlope: 3.7500002
-        outSlope: 3.7500002
+        inSlope: 7.5000005
+        outSlope: 7.5000005
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.2
+        time: 0.1
         value: 1
         inSlope: 0
         outSlope: 0
@@ -332,7 +332,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.06666667
+        time: 0.033333335
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -341,16 +341,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.13333334
+        time: 0.06666667
         value: 0.75
-        inSlope: 3.7500002
-        outSlope: 3.7500002
+        inSlope: 7.5000005
+        outSlope: 7.5000005
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.2
+        time: 0.1
         value: 1
         inSlope: 0
         outSlope: 0

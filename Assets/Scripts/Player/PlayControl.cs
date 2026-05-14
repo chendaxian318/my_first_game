@@ -1,5 +1,6 @@
 using NUnit.Framework.Constraints;
 using System;
+using UnityEditor.ShaderGraph;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,13 +13,19 @@ public class PlayControl : MonoBehaviour
     public PhysicsCheck physicsCheck;
     float originSpeed;
     public CapsuleCollider2D capsuleCollider;
+   
     private Vector2 originCapsualeSize;
     private Vector2 originCapsualeOffset;
+    private Animator ani;
 
+    [Header("材质参数")]
+    public PhysicsMaterial2D normal;
+    public PhysicsMaterial2D wall;
     [Header("速度参数")]
     public Vector2 moveInput;
     public bool isRun;
     public bool isHurt;
+    public bool isAttack;
     public bool isDead;
     public float moveSpeed;
     public float jumpForce;
@@ -32,6 +39,7 @@ public class PlayControl : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         physicsCheck = GetComponent<PhysicsCheck>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        ani = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -49,6 +57,19 @@ public class PlayControl : MonoBehaviour
 
         playerInput.actions["GamePlay/Crouch"].canceled += OnCrouchCanceled;
         playerInput.actions["GamePlay/Crouch"].performed += OnCrouchPerformed;
+
+        playerInput.actions["GamePlay/Attack"].canceled += OnAttackCanceled;
+        playerInput.actions["GamePlay/Attack"].performed += OnAttackPerformed;
+    }
+
+    private void OnAttackCanceled(InputAction.CallbackContext context)
+    {
+    }
+
+    private void OnAttackPerformed(InputAction.CallbackContext context)
+    {
+        isAttack = true;
+        ani.SetTrigger("attack");
     }
 
     private void OnCrouchPerformed(InputAction.CallbackContext context)
@@ -104,10 +125,12 @@ public class PlayControl : MonoBehaviour
 
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
+        
         moveInput = context.ReadValue<Vector2>();
         direction = (int)moveInput.x;
         //死亡后不能转向
-            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        
 
     }
     private void OnMoveCanceled(InputAction.CallbackContext context)
@@ -118,11 +141,12 @@ public class PlayControl : MonoBehaviour
 
     private void Update()
     {
+        CheckState();
     }
     void FixedUpdate()
     {
         //Velocity is objection speed
-        if (!physicsCheck.isCrouch&& !isHurt)
+        if (!physicsCheck.isCrouch && !isHurt && !isAttack)
             rb.linearVelocityX = moveInput.x * moveSpeed;
     }
 
@@ -130,8 +154,18 @@ public class PlayControl : MonoBehaviour
     {
         playerInput.actions["GamePlay/Move"].performed -= OnMovePerformed;
         playerInput.actions["GamePlay/Move"].canceled -= OnMoveCanceled;
+
         playerInput.actions["GamePlay/Jump"].performed -= OnJumpPerformed;
         playerInput.actions["GamePlay/Jump"].canceled -= OnJumpCanceled;
+
+        playerInput.actions["GamePlay/Run_Walk"].performed -= OnRun_WalkPerformed;
+        playerInput.actions["GamePlay/Run_Walk"].canceled -= OnRun_WalkCanceled;
+
+        playerInput.actions["GamePlay/Crouch"].canceled -= OnCrouchCanceled;
+        playerInput.actions["GamePlay/Crouch"].performed -= OnCrouchPerformed;
+
+        playerInput.actions["GamePlay/Attack"].canceled -= OnAttackCanceled;
+        playerInput.actions["GamePlay/Attack"].performed -= OnAttackPerformed;
     }
 
     
@@ -142,5 +176,10 @@ public class PlayControl : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
 
         rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
+    }
+
+    private void CheckState()
+    {
+        capsuleCollider.sharedMaterial = physicsCheck.isGround ? normal : wall;
     }
 }
