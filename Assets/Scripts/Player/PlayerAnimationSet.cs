@@ -32,7 +32,7 @@ public class PlayerAnimationSet : MonoBehaviour
         anim.SetTrigger("isHurt");
     }
 
-    public void TakeDead(object character)
+    public void TakeDead()
     {
         playControl.rb.linearVelocity =new Vector2(0, playControl.rb.linearVelocity.y);
         playControl.isDead = true;

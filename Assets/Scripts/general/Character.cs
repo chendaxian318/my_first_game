@@ -3,7 +3,7 @@ using UnityEngine.Events;
 public class Character : MonoBehaviour
 {
     public UnityEvent<Transform> OnTakeDamage;
-    public UnityEvent<object> OnTakeDead;
+    public UnityEvent OnTakeDead;
     public int healthAll;
     public int healthCurrent;
     private Animator ani;
@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
         {
             healthCurrent = 0;
             //Ö´ÐÐËÀÍö²Ù×÷
-            OnTakeDead?.Invoke(this);
+            OnTakeDead?.Invoke();
             
         }
     }

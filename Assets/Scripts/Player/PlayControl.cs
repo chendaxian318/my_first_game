@@ -1,5 +1,6 @@
 using NUnit.Framework.Constraints;
 using System;
+using System.Drawing;
 using UnityEditor.ShaderGraph;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -42,6 +43,7 @@ public class PlayControl : MonoBehaviour
         ani = GetComponent<Animator>();
     }
 
+#region 按键设定
     private void OnEnable()
     {
         playerInput.actions["GamePlay/Move"].performed += OnMovePerformed;
@@ -139,17 +141,6 @@ public class PlayControl : MonoBehaviour
         moveInput = Vector2.zero;
     }
 
-    private void Update()
-    {
-        CheckState();
-    }
-    void FixedUpdate()
-    {
-        //Velocity is objection speed
-        if (!physicsCheck.isCrouch && !isHurt && !isAttack)
-            rb.linearVelocityX = moveInput.x * moveSpeed;
-    }
-
     private void OnDisable()
     {
         playerInput.actions["GamePlay/Move"].performed -= OnMovePerformed;
@@ -167,6 +158,21 @@ public class PlayControl : MonoBehaviour
         playerInput.actions["GamePlay/Attack"].canceled -= OnAttackCanceled;
         playerInput.actions["GamePlay/Attack"].performed -= OnAttackPerformed;
     }
+
+#endregion
+
+    private void Update()
+    {
+        CheckState();
+    }
+    void FixedUpdate()
+    {
+        //Velocity is objection speed
+        if (!physicsCheck.isCrouch && !isHurt && !isAttack)
+            rb.linearVelocityX = moveInput.x * moveSpeed;
+    }
+
+    
 
     
     public void GetHurt(Transform AttackTransform)

@@ -7,46 +7,31 @@ public class Boar :enemy
 
     protected override void Awake()
     {
-        physicsCheck = GetComponent<PhysicsCheck>();
         base.Awake();
-        isWalk = true;
+        patrolState = new BoarPatrolState();
     }
     protected override void Update()
     {
         base.Update();
-        setAnimation();
+        //每个敌人的计时部分应该是不同的
         countIdleTime();
     }
-    protected override void move()
-    {
-        base.move();
-        if ((((physicsCheck.faceDir > 0 && physicsCheck.isRightWall)|| (physicsCheck.faceDir < 0 && physicsCheck.isLeftWall))||!physicsCheck.isGround)&&!isIdle)
-        {
-            Debug.Log("test");
-            
-            getIdle();
-        }
+    public override void move()
+    {;
+        if (isHurt) return;
+        rb.linearVelocityX = (float)physicsCheck.faceDir * normalSpeed;
+
     }
-    private void setAnimation()
-    {
-        //    public bool isIdle;
-        //public bool isRun;
-        //public bool isWalk;
-        anim.SetBool("isIdle", isIdle);
-        anim.SetBool("isRun", isRun);
-        anim.SetBool("isWalk", isWalk);
-    }
-    private void countIdleTime()
+    
+    protected  override void countIdleTime()
     {
         if (isIdle)
         {
             currentTime -= Time.deltaTime;
             if (currentTime <= 0)
             {
-                Debug.Log("test");
-                
                 isIdle = false;
-
+                isRun = false;
                 isWalk = true;
                 //最后转身
                 physicsCheck.faceDir = -physicsCheck.faceDir;
@@ -55,13 +40,15 @@ public class Boar :enemy
             }
         }
     }
-    private void getIdle()
+    public override void GetIdle()
     {
         isWalk = false;
         isIdle = true;
+        isRun = false;
         originalSpeed = normalSpeed;
         normalSpeed = 0;
         //设定开始计时
         currentTime = waitIdleTime;
     }
+
 }

@@ -2109,7 +2109,7 @@ Tilemap:
       - {fileID: -1854708939, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1115559790, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1668402573, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: -4, z: 0}
@@ -2164,7 +2164,7 @@ Tilemap:
       - {fileID: -1280221105, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -164257958, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1847287629, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: -2, z: 0}
@@ -2208,7 +2208,7 @@ Tilemap:
       - {fileID: -1854708939, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1115559790, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1668402573, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: -1, z: 0}
@@ -2252,7 +2252,7 @@ Tilemap:
       - {fileID: -570283661, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -1720935660, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 2012365067, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: 0, z: 0}
@@ -2285,7 +2285,7 @@ Tilemap:
       - {fileID: -570283661, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -1720935660, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 2012365067, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: 1, z: 0}
@@ -2307,7 +2307,7 @@ Tilemap:
       - {fileID: -1854708939, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1115559790, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1668402573, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: 2, z: 0}
@@ -2395,7 +2395,7 @@ Tilemap:
       - {fileID: -1280221105, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -164257958, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1847287629, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: 5, z: 0}
@@ -2428,7 +2428,7 @@ Tilemap:
       - {fileID: -1280221105, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -164257958, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1847287629, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: 6, z: 0}
@@ -2472,7 +2472,7 @@ Tilemap:
       - {fileID: -1854708939, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1115559790, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1668402573, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: 7, z: 0}
@@ -3394,7 +3394,7 @@ Transform:
   m_GameObject: {fileID: 1857505121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.02, y: 0.03, z: 0}
+  m_LocalPosition: {x: 2.91, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3506,7 +3506,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  healthAll: 1000
+  healthAll: 50
   healthCurrent: 0
   timeCount: 0.1
   invulnerableDamage: 0
@@ -3537,7 +3537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972591f6702eea74d8e696a78ee88d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boar
-  physicsCheck: {fileID: 0}
   normalSpeed: 1
   runSpeed: 2
   originalSpeed: 0
