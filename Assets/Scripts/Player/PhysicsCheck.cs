@@ -15,7 +15,7 @@ public class PhysicsCheck : MonoBehaviour
     public LayerMask GroundLayer; //Ö¸¶¨Åö×²²ã¼¶
     public Vector2 bottomOffset;
     public Vector2 leftOffset;
-    public double faceDir;
+    public float faceDir;
     public Vector2 rightOffset; 
     private void Awake()
     {

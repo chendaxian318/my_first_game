@@ -6,6 +6,11 @@ public class BoarPatrolState : BaseState
     public override void LogicUpdate()
     {
         //TODO:∑¢œ÷player«–ªªµΩchase 
+        if (currentEnemy.FindPlay())
+        {
+            currentEnemy.SwitchState(NPCState.Chase);
+            
+        }
 
         currentEnemy.move();
         currentEnemy.t1 = currentEnemy.transform.position.x;

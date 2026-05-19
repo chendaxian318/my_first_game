@@ -9,12 +9,13 @@ public class Boar :enemy
     {
         base.Awake();
         patrolState = new BoarPatrolState();
+        chaseState = new BoarChaseState();
     }
     protected override void Update()
     {
         base.Update();
         //每个敌人的计时部分应该是不同的
-        countIdleTime();
+        CountIdleTime();
     }
     public override void move()
     {;
@@ -23,7 +24,7 @@ public class Boar :enemy
 
     }
     
-    protected  override void countIdleTime()
+    protected  override void CountIdleTime()
     {
         if (isIdle)
         {
@@ -36,7 +37,7 @@ public class Boar :enemy
                 //最后转身
                 physicsCheck.faceDir = -physicsCheck.faceDir;
                 transform.localScale = new Vector3((float)-physicsCheck.faceDir, 1, 1);
-                normalSpeed = originalSpeed;
+                normalSpeed = walkSpeed;
             }
         }
     }
@@ -45,10 +46,15 @@ public class Boar :enemy
         isWalk = false;
         isIdle = true;
         isRun = false;
-        originalSpeed = normalSpeed;
         normalSpeed = 0;
         //设定开始计时
         currentTime = waitIdleTime;
+    }
+
+    public override bool FindPlay()
+    {
+        
+        return Physics2D.OverlapBox(transform.position + (Vector3)centerOffset+new Vector3(patrolDistance*physicsCheck.faceDir,0,0), new(patrolRatation.x+ patrolDistance, patrolRatation.y), 0,LayerMask.GetMask("player"));
     }
 
 }

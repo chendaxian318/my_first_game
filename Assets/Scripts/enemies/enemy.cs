@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -10,13 +11,17 @@ public class enemy : MonoBehaviour
     [Header("运动参数")]
     public float normalSpeed;//当前速度
     public float runSpeed;//奔跑速度
-    public float originalSpeed;//原来的速度
+    public float walkSpeed;//原来的速度
     public bool isIdle;
     public bool isRun;
     public bool isWalk;
     public bool isHurt;
     public bool isDead;
     public float hurtForce;
+    [Header("巡逻参数")]
+    public Vector2 centerOffset;
+    public Vector2 patrolRatation;
+    public float patrolDistance;
 
     private BaseState currentSate;
     protected BaseState patrolState;
@@ -31,6 +36,7 @@ public class enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         physicsCheck = GetComponent<PhysicsCheck>();
         isWalk = true;
+        normalSpeed = walkSpeed;
     }
 
 
@@ -96,6 +102,30 @@ public class enemy : MonoBehaviour
     }
     #endregion
 
-    protected virtual void countIdleTime() { }
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 start = transform.position + (Vector3)centerOffset;
+        Vector3 end = start + new Vector3(patrolDistance * -transform.localScale.x, 0, 0);
+        Vector3 center = (start + end) * 0.5f;
+        Vector3 size = new Vector3(Mathf.Abs(patrolDistance), patrolRatation.y, 0);
+
+        Gizmos.DrawWireCube(center, size);
+    }
+
+    public void SwitchState(NPCState state)
+    {
+        var newState = state switch
+        {
+            NPCState.Patrol => patrolState,
+            NPCState.Chase => chaseState,
+            _=>null
+        };
+        currentSate.OnExit();
+        currentSate = newState;
+        currentSate.OnEnter(this);
+    }
+
+    protected virtual void CountIdleTime() { }
+    public virtual bool FindPlay() { return false; }
 
 }
