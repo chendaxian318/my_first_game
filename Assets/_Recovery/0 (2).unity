@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 113018574}
   - component: {fileID: 113018573}
   m_Layer: 0
-  m_Name: VirtualCamera
+  m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 527526865}
   m_Layer: 0
   m_Name: Bounds
-  m_TagString: Untagged
+  m_TagString: Bounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3026,7 +3026,7 @@ Tilemap:
       - {fileID: -1280221105, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -164257958, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1847287629, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: -3, z: 0}
@@ -3048,7 +3048,7 @@ Tilemap:
       - {fileID: -570283661, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -1720935660, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 2012365067, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: -3, z: 0}
@@ -3180,7 +3180,7 @@ Tilemap:
       - {fileID: -570283661, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -1720935660, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 2012365067, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: 1, z: 0}
@@ -3224,7 +3224,7 @@ Tilemap:
       - {fileID: -1280221105, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -164257958, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 1847287629, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: 3, z: 0}
@@ -3246,7 +3246,7 @@ Tilemap:
       - {fileID: -570283661, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: -1720935660, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
       - {fileID: 2012365067, guid: 4f9504fdbea09b44a940a387595136a2, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: 3, z: 0}

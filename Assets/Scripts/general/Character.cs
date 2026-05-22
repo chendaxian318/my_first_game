@@ -4,8 +4,9 @@ public class Character : MonoBehaviour
 {
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnTakeDead;
-    public int healthAll;
-    public int healthCurrent;
+    public UnityEvent<Character> OnHealthChange;
+    public float healthAll;
+    public float healthCurrent;
     private Animator ani;
     [Header("¼ÆÊ±Æ÷")]
     public double timeCount;
@@ -14,7 +15,7 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         healthCurrent = healthAll;
-        ani=GetComponent<Animator>();
+        ani =GetComponent<Animator>();
     }
     public void TakeDamage(Attack attack)
     {
@@ -33,6 +34,11 @@ public class Character : MonoBehaviour
             OnTakeDead?.Invoke();
             
         }
+        OnHealthChange?.Invoke(this);
+    }
+    private void Start()
+    {
+        OnHealthChange?.Invoke(this);
     }
     private void Update()
     {
