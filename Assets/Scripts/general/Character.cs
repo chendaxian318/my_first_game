@@ -43,6 +43,17 @@ public class Character : MonoBehaviour
     private void Update()
     {
         invulnerableTimeUpdate();
+        
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Water"))
+        {
+            //¥•ÀÆº¥À¿
+            healthCurrent = 0;
+            OnHealthChange?.Invoke(this);
+            OnTakeDead?.Invoke();
+        }
     }
     // ‹…À…À∫¶º∆À„
     private void hurtCalculate(Attack attack)
