@@ -1,15 +1,41 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Sign : MonoBehaviour
 {
     private Animator anim;
     public GameObject signSprite;
-    public bool canPress;
+    private bool canPress;
     public Transform playTrans;
+    private PlayerInput playerInput;
+    private IInteractable targetItem;
     private void Awake()
     {
-        //anim = GetComponentInChildren<Animator>();
-        //anim = signSprite.GetComponent<Animator>();
+        playerInput = GetComponentInParent<PlayerInput>();
+        anim = signSprite.GetComponent<Animator>();
+    }
+    private void OnEnable()
+    {
+        playerInput.actions["GamePlay/Confirm"].performed += OnConfirmPerformed;
+        playerInput.actions["GamePlay/Confirm"].canceled += OnConfirmCanceled;
+    }
+    private void OnConfirmPerformed(InputAction.CallbackContext context)
+    {
+        if (canPress) {
+            targetItem.TriggerAction();
+        }
+    }
+    private void OnConfirmCanceled(InputAction.CallbackContext context)
+    {
+    }
+
+    
+
+    private void OnDisable()
+    {
+        playerInput.actions["GamePlay/Confirm"].performed -= OnConfirmPerformed;
+        playerInput.actions["GamePlay/Confirm"].canceled -= OnConfirmCanceled;
     }
 
     private void Update()
@@ -22,13 +48,13 @@ public class Sign : MonoBehaviour
     {
         
         if (collision.CompareTag("Interactable"))
-            canPress = true; 
+        {
+            canPress = true;
+            targetItem = collision.GetComponent<IInteractable>();
+        }
+        else canPress = false;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Interactable"))
-            canPress = false;
-    }
+    
 
 }
