@@ -864,7 +864,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 393
+        y: 392
         width: 56
         height: 56
       alignment: 7
@@ -885,7 +885,7 @@ TextureImporter:
       name: char_jump2-2
       rect:
         serializedVersion: 2
-        x: 168
+        x: 169
         y: 392
         width: 56
         height: 56
