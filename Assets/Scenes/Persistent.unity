@@ -309,6 +309,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7001bb900ba46a49ae9cb1f966aae67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  loadEventSO: {fileID: 11400000, guid: 22d6b1710f1940440bcbc4ec9ee248fd, type: 2}
+  firstLoadScene: {fileID: 11400000, guid: 4603591e43853554eae3aec68551e49c, type: 2}
+  currentLoadedScene: {fileID: 0}
+  player: {fileID: 1654972960}
+  fadeDuration: 0
 --- !u!4 &93676932
 Transform:
   m_ObjectHideFlags: 0
@@ -523,7 +528,7 @@ Transform:
   m_GameObject: {fileID: 113018569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: 1.23, z: -10}
+  m_LocalPosition: {x: -2.8, y: 1.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -938,7 +943,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: 1.23, z: -10}
+  m_LocalPosition: {x: -2.8, y: 1.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2080,7 +2085,7 @@ Transform:
   m_GameObject: {fileID: 1654972960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: 0.23, z: 0}
+  m_LocalPosition: {x: -2.8, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
