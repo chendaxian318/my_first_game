@@ -36,6 +36,8 @@ public class Sign : MonoBehaviour
     {
         playerInput.actions["GamePlay/Confirm"].performed -= OnConfirmPerformed;
         playerInput.actions["GamePlay/Confirm"].canceled -= OnConfirmCanceled;
+
+        canPress = false;
     }
 
     private void Update()

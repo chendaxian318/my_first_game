@@ -3,6 +3,8 @@ using Unity.Cinemachine;
 using System;
 public class CameraControl : MonoBehaviour
 {
+    [Header("事件监听")]
+    public VoidEventSO afterSceneLoadedEvent;
     private CinemachineConfiner2D confiner2D;
     public CinemachineImpulseSource impulseSource;
     public VoidEventSO cameraShakeEvent;
@@ -14,6 +16,7 @@ public class CameraControl : MonoBehaviour
     private void OnEnable()
     {
         cameraShakeEvent.OnEventRaised += OnCameraShakeEvent;
+        afterSceneLoadedEvent.OnEventRaised += OnAfterSceneLoadedEvent;
     }
 
     private void OnCameraShakeEvent()
@@ -24,11 +27,12 @@ public class CameraControl : MonoBehaviour
     private void OnDisable()
     {
         cameraShakeEvent.OnEventRaised -= OnCameraShakeEvent;
+        afterSceneLoadedEvent.OnEventRaised -= OnAfterSceneLoadedEvent;
     }
-
     //TODO：场景切换后更改
-    private void Start()
+    private void OnAfterSceneLoadedEvent()
     {
+
         GetNewCameraBounds();
     }
     private void GetNewCameraBounds()
